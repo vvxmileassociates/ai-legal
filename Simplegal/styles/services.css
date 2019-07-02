@@ -1,0 +1,457 @@
+@charset "utf-8";
+/* CSS Document */
+
+/******************************
+
+[Table of Contents]
+
+1. Fonts
+2. Body and some general stuff
+3. Home
+4. Header
+	4.1 Top bar
+	4.2 Main Menu
+5. Menu
+6. Points
+7. Services
+8. Call Back
+9. Footer
+
+
+******************************/
+
+/***********
+1. Fonts
+***********/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@font-face
+{
+	font-family: 'gill';
+	src: url('../fonts/gil.ttf')  format('truetype');
+}
+@font-face
+{
+	font-family: 'gill';
+	src: url('../fonts/gil_b.ttf')  format('truetype');
+	font-weight: bold;
+}
+
+/*********************************
+2. Body and some general stuff
+*********************************/
+
+*
+{
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+}
+body
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	background: #FFFFFF;
+	color: #a5a5a5;
+}
+div
+{
+	display: block;
+	position: relative;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-control
+{
+	color: #db5246;
+}
+
+.super_container
+{
+	width: 100%;
+	overflow: hidden;
+}
+
+/*********************************
+3. Home
+*********************************/
+
+.home
+{
+	width: 100%;
+	#height: 100vh;
+	background: #15191f;
+}
+
+.home_background
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/*********************************
+4. Header
+*********************************/
+
+.header
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 100;
+}
+.header.scrolled
+{
+	-webkit-transform: translateY(-86px);
+	-moz-transform: translateY(-86px);
+	-ms-transform: translateY(-86px);
+	-o-transform: translateY(-86px);
+	transform: translateY(-86px);
+}
+
+/*********************************
+4.1 Top bar
+*********************************/
+
+.logo_container
+{
+	transform: translateY(12px);
+}
+.logo
+{
+	padding-left: 63px;
+}
+
+.logo_img
+{
+	position: absolute;
+	left: -66px;
+	top: -40px;
+	width: 67px;
+	height: 48px;
+}
+.logo_img img
+{
+	max-width: 100%;
+}
+
+
+/*********************************
+4.2 Main Menu
+*********************************/
+
+.main_menu
+{
+	width: 100%;
+	background: #15191f;
+	#top: 10px;
+	position: fixed;
+}
+.main_menu_container
+{
+	width: 100%;
+	height: 85px;
+}
+
+.main_menu.scrolled
+{
+	-webkit-transform: translateY(-86px);
+	-moz-transform: translateY(-86px);
+	-ms-transform: translateY(-86px);
+	-o-transform: translateY(-86px);
+	transform: translateY(-86px);
+}
+
+/*********************************
+8. Call Back
+*********************************/
+
+.call
+{
+	position:relative;
+	width: 100%;
+	background: #FFFFFF;
+}
+
+.call_container
+{
+	padding-top: 120px;
+	left: -30px;
+	padding-bottom: 30px;
+}
+
+.call_form_container
+{
+	margin-top: 50px;
+}
+.call_form
+{
+	width: 100%;
+}
+.input_item
+{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	border:  2px #806000;
+	margin-bottom: 10px;
+	padding-left: -30px;
+	outline: black;
+	z-index: 1;
+	border-radius: 4px;
+}
+
+.form-control
+{
+	margin-bottom: 10px;
+	padding-left: -30px;
+	width: 50%;
+}
+
+.input_item:focus
+{
+	border-color: #003679;
+}
+
+
+.call_form_submit
+{
+	width: 100%;
+	height: 10px;
+	overflow: hidden;
+}
+.call_button
+{
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 30px;
+	background: #48556a;
+	line-height: 25px;
+	font-size: 14px;
+	#text-transform: uppercase;
+	color: #FFFFFF;
+	font-weight: 200;
+	border: 5px #806000;
+	outline: none;
+	cursor: pointer;
+	z-index: 1;
+	border-radius: 4px;
+	#font:14px sans-serif;
+
+}
+
+
+ th, td, p, input {
+            font:12px calibri;
+			font-family: 'gill', sans-serif;
+        }
+        table, th, td
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+			color: black;
+        }
+        th {
+            font-weight:bold;
+        }
+
+tr:nth-child(even) {
+  background-color: #ddddd;
+}
+
+.tableholder
+{
+	width: 95%;
+	height: 100%;
+	left: 40px;
+	right: 80px;
+
+}
+
+.slider_background
+{
+	position: absolute;
+	top: 0;
+	left: 40px;
+	right: 80px;
+	width: 95%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	opacity:0.8
+}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+  cursor: pointer;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+/*********************************
+11. Footer
+*********************************/
+
+.footer
+{
+	padding-top: 0px;
+	background: #15191f;
+}
+
+.copyright
+{
+	width: 100%;
+	margin-top: 310px;
+	background: #0d1016;
+}
+.copyright_content
+{
+	width: 100%;
+	height: 10px;
+}
+.footer_nav
+{
+	width: 100%;
+	height: 70px;
+	text-align: right;
+}
+.footer_nav ul li
+{
+	display: inline-block;
+	margin-right: 23px;
+}
+.footer_nav ul li:last-child
+{
+	margin-right: 0;
+}
+.footer_nav ul li a
+{
+	font-family: 'gill', sans-serif;
+	font-size: 13px;
+	color: #697686;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.footer_nav ul li a:hover
+{
+	color: #ffa800;
+}
+.cr
+{
+	font-family: 'gill', sans-serif;
+	font-size: 13px;
+	color: #697686;
+	margin-top: 100px;
+}
+
+############
+
+
+
+nav > .nav.nav-tabs{
+
+  border: none;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;
+
+}
+nav > div a.nav-item.nav-link,
+nav > div a.nav-item.nav-link.active
+{
+  border: none;
+    padding: 18px 25px;
+    color:#fff;
+    background:#272e38;
+    border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+ {
+  content: "";
+  position: relative;
+  bottom: -60px;
+  left: -10%;
+  border: 15px solid transparent;
+  border-top-color: #e74c3c ;
+}
+.tab-content{
+  background: #fdfdfd;
+    line-height: 25px;
+    border: 1px solid #ddd;
+    border-top:5px solid #e74c3c;
+    border-bottom:5px solid #e74c3c;
+    padding:30px 25px;
+}
+
+nav > div a.nav-item.nav-link:hover,
+nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #e74c3c;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
