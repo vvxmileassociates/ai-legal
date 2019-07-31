@@ -89,10 +89,13 @@ def convertImg2Table(temp_folder, solr):
 			for index in range(len(row)):
 				d['field'+str(index)] = row[index]
 			docs.append(d)
-
-		#solr.index('collection1', docs)
-		#solr.commit('collection1', softCommit=True)
-		#logging.info('Solr indexing done')
+			try:
+				Solr.index('collection1', d)
+				solr.commit('collection1', softCommit=True)
+			except:
+				print('error')
+				print(d)
+	logging.info('Solr indexing done')
 
 	del cv2
 
