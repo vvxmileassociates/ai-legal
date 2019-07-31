@@ -1,0 +1,8 @@
+
+Step 1) start the solr using 
+		./solr start
+
+Step 2) creating a collection
+		./solr create -c collection1
+
+Step 3) run the Pdf2Text python file
