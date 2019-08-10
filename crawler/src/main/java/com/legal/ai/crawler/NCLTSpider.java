@@ -17,9 +17,22 @@ import com.legal.ai.constants.Constants;
 
 public class NCLTSpider {
 	
+	
+	public static int getLastPage(WebDriver driver, String URL) throws InterruptedException {
+		driver.get(URL);
+		Thread.sleep(5000);  // Let the user actually see something!
+		driver.findElement(By.xpath("//*[@id=\"block-system-main\"]/div/div/div[2]/ul/li[12]/a")).click();
+		int last_page = Integer.parseInt(driver.findElement(By.className("pager-current")).getText());
+		return last_page;
+	}
+	
 	public static void main(String[] args) {
 		
 		try {
+
+			System.setProperty("webdriver.chrome.driver", Constants.DRIVER_FOLDER);
+			
+			WebDriver driver = new ChromeDriver();
 			
 			String court;
 			// Court number and number of page map			
@@ -67,9 +80,7 @@ public class NCLTSpider {
 				BufferedWriter bw = new BufferedWriter(new FileWriter(Constants.ROOT_FOLDER+courtFolder+"/"+courtName+".csv"));
 				
 				System.out.println("NCLT Spider Code . . .");
-				System.setProperty("webdriver.chrome.driver", Constants.DRIVER_FOLDER);
-				
-				WebDriver driver = new ChromeDriver();			
+					
 				String URL = "";
 				List<WebElement> col = null;
 				List<WebElement> rows = null;
@@ -77,9 +88,11 @@ public class NCLTSpider {
 				for(Entry<String, String> entry : courts.entrySet()) {
 				
 					court = entry.getKey();
+					URL = "https://nclt.gov.in/pdf-cause-list?field_bench_target_id="+courtId+"&field_bench_court_target_id_entityreference_filter="+court;
+					int last_page = getLastPage(driver, URL); 
 					
 					// repeat the same step to fetch all the records
-					for(int page=0; page<Integer.parseInt(entry.getValue()); page++) {
+					for(int page=0; page<last_page; page++) {
 						
 						// hit the link to move the pagination
 						if(page == 0) {
