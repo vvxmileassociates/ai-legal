@@ -10,6 +10,7 @@ import logging
 
 pdf_input_path = "./input/"
 pdf_output_path = "./output/"
+debug_path = "./debug/"
 NO_OF_COLS = 8
 
 logging.basicConfig(format='[%(levelname)s]: %(message)s', level=logging.INFO)
@@ -64,7 +65,7 @@ def convertImg2Table(temp_folder, solr):
 		logging.info('Extracting images from {0}'.format(i_file))
 		for index, row in df.sort_values(by=['y', 'x'], ascending=[1, 1]).iterrows():
 			new_img = img[row.y:row.y+row.h, row.x:row.x+row.w]
-			# cv2.imwrite(temp_folder+'/'+str(row.img) + '.png', new_img)
+			cv2.imwrite(debug_path+'/'+str(row.img) + '.png', new_img)
 			txt = show_text(new_img, row.img)
 			tmp_arr.append(txt)
 			if ((pointer % NO_OF_COLS) + 1) == NO_OF_COLS:
