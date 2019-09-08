@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<benches>
+	<bench>
+		<name>Mumbai</name>
+		<court></court>
+		<columns>
+			<label>Sr.No.</label>
+			<label>CP/CA No.</label>
+			<label>Purpose</label>
+			<label>Sections</label>
+			<label>Name of Parties</label>
+			<label>Name of the Legal Practitioner</label>
+			<label>Remarks</label>
+		</columns>
+		<pattern>\d+\.</pattern>
+	</bench>
+</benches>
