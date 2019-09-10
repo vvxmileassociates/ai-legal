@@ -14,4 +14,47 @@
 		</columns>
 		<pattern>\d+\.</pattern>
 	</bench>
+	<bench>
+		<name>Registrar</name>
+		<court></court>
+		<columns>
+			<label>Sr.No.</label>
+			<label>CP/CA No.</label>
+			<label>Purpose</label>
+			<label>Sections</label>
+			<label>Name of Parties</label>
+			<label>Name of the Legal Practitioner</label>
+			<label>Remarks</label>
+		</columns>
+		<pattern>\d+\.</pattern>
+	</bench>
+	<bench>
+		<name>Principal</name>
+		<court></court>
+		<columns>
+			<label>Sr.No.</label>
+			<label>CP. No.</label>
+			<label>Purpose</label>
+			<label>Section</label>
+			<label>Name of Parties</label>
+			<label>Name of the Legal Practitioner</label>
+			<label>Remarks</label>
+		</columns>
+		<pattern>\d+</pattern>
+	</bench>
+	<bench>
+		<name>Kolkata</name>
+		<court></court>
+		<columns>
+			<label>Sr.No.</label>
+			<label>CP. No.</label>
+			<label>Purpose</label>
+			<label>Section</label>
+			<label>Name of Parties</label>
+			<label>Petitioner</label>
+			<label>Respondent</label>
+			<label>Remarks</label>
+		</columns>
+		<pattern>\d+</pattern>
+	</bench>
 </benches>
