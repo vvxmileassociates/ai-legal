@@ -57,4 +57,32 @@
 		</columns>
 		<pattern>\d+</pattern>
 	</bench>
+	<bench>
+		<name>Delhi-2</name>
+		<court></court>
+		<columns>
+			<label>Sr.No.</label>
+			<label>CP/CA No.</label>
+			<label>Purpose</label>
+			<label>Section</label>
+			<label>Name of Parties</label>
+			<label>Name of the legal Petitioner</label>
+			<label>Remarks</label>
+		</columns>
+		<pattern>\d+</pattern>
+	</bench>
+	<bench>
+		<name>Delhi-3</name>
+		<court></court>
+		<columns>
+			<label>Sr.No.</label>
+			<label>CP/CA No.</label>
+			<label>Purpose</label>
+			<label>Section</label>
+			<label>Name of Parties</label>
+			<label>Name of the legal Petitioner</label>
+			<label>Remarks</label>
+		</columns>
+		<pattern>\d+</pattern>
+	</bench>
 </benches>
