@@ -3,8 +3,12 @@ package com.legal.ai.crawler;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map.Entry;
 
 import org.openqa.selenium.By;
@@ -18,14 +22,25 @@ import com.legal.ai.constants.Constants;
 public class NCLTSpider {
 	
 	
-	public static int getLastPage(WebDriver driver, String URL) throws InterruptedException {
-		driver.get(URL);
-		Thread.sleep(5000);  // Let the user actually see something!
-		driver.findElement(By.xpath("//*[@id=\"block-system-main\"]/div/div/div[2]/ul/li[12]/a")).click();
-		int last_page = Integer.parseInt(driver.findElement(By.className("pager-current")).getText());
+	public static int getLastPage(WebDriver driver, String URL){
+
+		String selector = "#block-system-main > div > div > div.item-list > ul > li.pager-last.last > a";
+		int last_page=0;
+		try {
+			driver.get(URL);
+			Thread.sleep(5000);  // Let the user actually see something!
+		}
+		catch (InterruptedException ex) {
+			ex.printStackTrace();
+		}
+		try {
+			driver.findElement(By.cssSelector(selector)).click();
+			last_page = Integer.parseInt(driver.findElement(By.className("pager-current")).getText());
+		}
+		catch (Exception e) { e.printStackTrace(); }
 		return last_page;
 	}
-	
+
 	public static void main(String[] args) {
 		
 		try {
@@ -42,6 +57,8 @@ public class NCLTSpider {
 			benchCourtMap.put("New Delhi Bench Court-II~5366","Court-II~5386");
 			benchCourtMap.put("New Delhi Bench Court-III~5367","Court-III~5381");
 			benchCourtMap.put("New Delhi Bench Court-IV~5368","Court-IV~5387");
+			benchCourtMap.put("New Delhi Bench Court-V~512971","Court-V~512975");
+			benchCourtMap.put("New Delhi Bench Court-VI~512972","Court-VI~512976");
 			benchCourtMap.put("Registrar NCLT~5369","Court-I~5382");
 			benchCourtMap.put("Ahmedabad Bench~5370","Court-I~5388");
 			benchCourtMap.put("Allahabad Bench~5371","Court-I~5383");
@@ -54,7 +71,7 @@ public class NCLTSpider {
 			benchCourtMap.put("Mumbai Bench~5378","Court-III~5396:Main Board Court-I~5395:Main Board Court-II~5394");
 			benchCourtMap.put("Jaipur Bench~119125","Court-I~119126");
 			benchCourtMap.put("Cuttack Bench~364886","Court-I~364887");
-			
+
 			for(String bc_key : benchCourtMap.keySet()) {											
 			
 				String courtName = "file";
@@ -89,8 +106,10 @@ public class NCLTSpider {
 				
 					court = entry.getKey();
 					URL = "https://nclt.gov.in/pdf-cause-list?field_bench_target_id="+courtId+"&field_bench_court_target_id_entityreference_filter="+court;
-					int last_page = getLastPage(driver, URL); 
-					
+					int last_page = getLastPage(driver, URL);
+					//int last_page = 1;
+
+					System.out.println("No of pages identified is "+last_page);
 					// repeat the same step to fetch all the records
 					for(int page=0; page<last_page; page++) {
 						
@@ -142,6 +161,6 @@ public class NCLTSpider {
 		catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		
+
 	}
 }
